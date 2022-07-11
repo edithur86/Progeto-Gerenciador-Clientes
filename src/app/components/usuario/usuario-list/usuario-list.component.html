@@ -1,0 +1,8 @@
+<po-loading-overlay [hidden]="hideLoading" [p-text]="literals?.carregando"></po-loading-overlay>
+<po-page-list [p-title]="title" [p-breadcrumb]="breadcrumb" [p-actions]="actions" [p-filter]="filterSettings">
+    <po-container>
+        <po-table p-selectable="true" p-sort="true" p-striped="true" [p-columns]="colunas" [p-items]="getListItems()"
+            [p-show-more-disabled]="!carregaMais" (p-show-more)="showMore()" p-hide-texp-overflow="true">
+        </po-table>
+    </po-container>
+</po-page-list>

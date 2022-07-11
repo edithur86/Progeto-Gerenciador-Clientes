@@ -1,0 +1,21 @@
+<po-loading-overlay [hidden]="hideLoading" [p-text]="literals?.carregando"></po-loading-overlay>
+<po-page-edit [p-breadcrumb]="breadcrumb" [p-title]="title" (p-save)="EventSave()" (p-cancel)="EventCancel()">
+    <po-container>
+        <div class="po-row">
+            <po-password class="po-sm-6" name="currentPassword" [(ngModel)]="usuarioUpdate.oldSenha" p-clean
+                p-error-pattern="invalid password" p-label="{{literals?.senhaAtual}}" p-required>
+            </po-password>
+        </div>
+        <div class="po-row">
+            <po-password class="po-sm-6" name="newPassword" [(ngModel)]="usuarioUpdate.newSenha" p-clean
+                p-error-pattern="invalid password" p-label="{{literals?.novaSenha}}" p-minlength="6" p-required>
+            </po-password>
+        </div>
+        <div class="po-row">
+            <po-password class="po-sm-6" name="confirmNewPassword"
+                [(ngModel)]="usuarioUpdate.newSenhaConfirmacao" p-clean p-error-pattern="invalid password"
+                p-label="{{literals?.confirmaNovaSenha}}" p-minlength="6" p-required>
+            </po-password>
+        </div>
+    </po-container>
+</po-page-edit>

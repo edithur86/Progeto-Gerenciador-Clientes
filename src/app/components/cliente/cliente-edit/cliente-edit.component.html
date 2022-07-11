@@ -1,0 +1,57 @@
+<po-loading-overlay [hidden]="hideLoading" [p-text]="literals?.carregando"></po-loading-overlay>
+<po-page-edit [p-breadcrumb]="breadcrumb" [p-title]="title" [p-disable-submit]="f.invalid" (p-save)="EventSave()"
+    (p-save-new)="EventSaveNew()" (p-cancel)="EventCancel()">
+    <po-container class="po-lg-12">
+        <form novalidate #f="ngForm">
+
+            <div class="po-row">
+                <po-switch *ngIf="edit" name="statusCliente" [(ngModel)]="cliente.ativo"
+                    p-label="{{literals?.situacao}}" p-label-on="{{literals?.ativo}}"
+                    p-label-off="{{literals?.inativo}}">
+                </po-switch>
+            </div>
+
+            <div>
+                <po-input class="po-md-4" name="cnpjCpf" [(ngModel)]="cliente.cnpjCpf" p-mask-format-model p-required
+                    p-label="{{literals?.cpf}}" [p-mask]="mask" [p-minlength]="minLength" [p-readonly]="edit"
+                    p-auto-focus="true" (p-change)="validaCPF($event)" (keyup.enter)="validaCPF($event)">
+                </po-input>
+                <po-input class="po-lg-4" name="nome" [(ngModel)]="cliente.nome" p-required p-maxlength="100"
+                    p-label="{{literals?.nome}}">
+                </po-input>
+                <po-input class="po-lg-4" name="email" [(ngModel)]="cliente.email" p-required p-maxlength="100"
+                    p-label="{{literals?.email}}">
+                </po-input>
+
+            </div>
+            <div>
+                <po-input class="po-lg-4" p-icon="po-icon-telephone" name="telResidencial"
+                    [p-mask]="maskTelefoneCelular" p-mask-format-model [(ngModel)]="cliente.telResidencial"
+                    p-label="{{literals?.telResidencial}}" p-maxlength="20"
+                    (p-change)="changeMaskTelefones('residencial')">
+                </po-input>
+                <po-input class="po-lg-4" name="cep" [(ngModel)]="cliente.cep" p-required p-maxlength="100"
+                    p-label="{{literals?.cep}}">
+                </po-input>
+                <po-input class="po-lg-4" name="endereco" [(ngModel)]="cliente.endereco" p-required p-maxlength="100"
+                    p-label="{{literals?.endereco}}">
+                </po-input>
+            </div>
+            <div>
+                <po-input class="po-lg-2" name="numero" [(ngModel)]="cliente.numero" p-required p-maxlength="100"
+                    p-label="{{literals?.numero}}">
+                </po-input>
+                <po-input class="po-lg-4" name="bairro" [(ngModel)]="cliente.bairro" p-required p-maxlength="100"
+                    p-label="{{literals?.bairro}}">
+                </po-input>
+                <po-input class="po-lg-4" name="cidade" [(ngModel)]="cliente.cidade" p-required p-maxlength="100"
+                    p-label="{{literals?.cidade}}">
+                </po-input>
+                <po-input class="po-lg-2" name="uf" [(ngModel)]="cliente.uf" p-required p-maxlength="100"
+                    p-label="{{literals?.uf}}">
+                </po-input>
+            </div>
+        </form>
+    </po-container>
+
+</po-page-edit>

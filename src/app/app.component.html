@@ -1,0 +1,29 @@
+<div class="po-wrapper" *ngIf="mostrarMenu">
+  <po-menu 
+    p-collapsed=true
+    p-logo="assets/images/estudo.png"
+    p-filter 
+    [p-menus]="menus">
+  </po-menu>
+  <po-toolbar 
+    p-title="Estudo"
+    [p-profile]="profile"
+    [p-profile-actions]="profileActions">
+  </po-toolbar>
+  <router-outlet></router-outlet>
+
+  <po-toolbar 
+  p-title="Estudo"
+  [p-profile]="profile"
+  [p-profile-actions]="profileActions">
+</po-toolbar>
+<router-outlet></router-outlet>
+</div>
+
+<po-page-login *ngIf="!mostrarMenu"
+  
+  p-background=""
+  p-logo="assets/images/estudo.png"
+  
+  (p-login-submit)="loginSubmit($event)">
+</po-page-login>

@@ -1,0 +1,19 @@
+<po-loading-overlay [hidden]="hideLoading" [p-text]="literals?.carregando"></po-loading-overlay>
+<po-page-list [p-title]="title" [p-breadcrumb]="breadcrumb" [p-actions]="actions" [p-filter]="filterSettings">
+    <div class="po-row">
+
+
+
+        <po-input class="po-lg-3" name="cnpjCpf" p-required [(ngModel)]="cliente.cnpjCpf" p-label="{{literals?.buscaCnpjCpf}}">
+        </po-input>
+
+        <po-button class="po-lg-2 descerBotaoFiltro" p-label="{{literals?.buscar}}" p-icon="po-icon po-icon-plus"
+            p-type="primary" (p-click)="adicionarCnpjCpf()"> </po-button>
+
+    </div>
+    <po-container>
+        <po-table p-selectable="true" p-sort="true" p-striped="true" [p-columns]="colunas" [p-items]="getListItems()"
+            [p-show-more-disabled]="!carregaMais" (p-show-more)="showMore()" p-hide-texp-overflow="true">
+        </po-table>
+    </po-container>
+</po-page-list>

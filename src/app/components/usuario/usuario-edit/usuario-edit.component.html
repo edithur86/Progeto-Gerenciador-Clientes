@@ -1,0 +1,28 @@
+<po-loading-overlay [hidden]="hideLoading" [p-text]="literals?.carregando"></po-loading-overlay>
+<po-page-edit [p-breadcrumb]="breadcrumb" [p-title]="title" [p-disable-submit]="f.invalid" (p-save)="EventSave()"
+    (p-save-new)="EventSaveNew()" (p-cancel)="EventCancel()">
+    <po-container class="po-lg-12">
+        <form novalidate #f="ngForm">
+            <div class="po-row">
+                <po-input class="po-lg-2" name="codigo" [(ngModel)]="usuario.codigo" p-auto-focus="true"
+                    p-label="{{literals?.codigo}}" p-required p-maxlength="10" p-disabled="true">
+                </po-input>
+                <po-switch class="switch-ativo-centro" name="switch" [(ngModel)]="usuario.ativo"
+                    p-label-off="{{literals?.inativo}}" p-label-on="{{literals?.ativo}}">
+                </po-switch>
+            </div>
+           
+            <div class="po-row">
+                <po-email #focusEmail class="po-lg-6" name="email" [(ngModel)]="usuario.email" p-label="{{literals?.email}}"
+                    p-required p-maxlength="50">
+                </po-email>
+            </div>
+            <div class="po-row">
+                <po-input p-icon="po-icon po-icon-users" class="po-lg-6" name="usuario" [(ngModel)]="usuario.usuario"
+                    p-label="{{literals?.usuario}}" p-required p-maxlength="50">
+                </po-input>
+            </div>
+        </form>
+    </po-container>
+   
+</po-page-edit>
